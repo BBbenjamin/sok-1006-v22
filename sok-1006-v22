@@ -32,6 +32,7 @@ demand_curve(np,2,3,4)
 
 supply_curve_short_run(np,2,3,4,5,6,7)
 
+
 def equate_q(y,pb,N,X,pf,t):
     #Finn verdien for Q som gør at demand_curve og supply_curve_long_run returnerer samme verdi. 
     #Bruk sp.Eq, og la første argument i funksjonene over være sp
@@ -40,7 +41,8 @@ def equate_q(y,pb,N,X,pf,t):
     sol = sp.nsolve(eq, 40)
     return float(sol)
     
-    def plot_year(df,year):
+    
+def plot_year(df,year):
     
 
 
@@ -67,17 +69,21 @@ def equate_q(y,pb,N,X,pf,t):
     #2. så skal de multipliseres med cpi
     #3. første argument er np her, ikke sp. 
     Q=np.linspace(0.1,100,100)
-    plt.plot(Q, np.exp(demand_curve(np,Q,y,pb))*cpi)
-    plt.plot(Q, np.exp(supply_curve_long_run(np,Q,N,X,pf,t))*cpi)
-    plt.plot(Q, np.exp(supply_curve_short_run(np,Q,N,X,pf,t,Q_fitted))*cpi)
+    plt.plot(Q, np.exp(demand_curve(np,Q,y,pb))*cpi, label = "Etterspørsel")
+    plt.plot(Q, np.exp(supply_curve_long_run(np,Q,N,X,pf,t))*cpi, label = "Etterspørsel lang sikt")
+    plt.plot(Q, np.exp(supply_curve_short_run(np,Q,N,X,pf,t,Q_fitted))*cpi, label = "Etterspørsel kort sikt")
+    plt.legend()
     plt.ylim(0,400)
+    plt.xlim(0,80)
 
     
     plt.show()
-    
-    #Oppgave#5
+
+
+#Oppgave#5
 df=pd.read_csv("https://uit-sok-1006-v22.github.io/innleveringer/chickendata.csv",delimiter=";")
 plot_year(df,1995)
+
 
 #Oppgave#6
 df=pd.read_csv("https://uit-sok-1006-v22.github.io/innleveringer/chickendata.csv",delimiter=";")
@@ -91,6 +97,8 @@ plot_year(df,1995)
 #demand noe som førte til et fall på prisen for kylling innen tidsperioden 1965-1995.
 #utslaget innen demand fra 1960-1995 er grunnet vekst innen realkapital på noe rundt 225%
 #i løpet av tidsperioden. og i løpet av perioden økte prisen med røffelig 25%.
+
+
 
 #Oppgave 7
 def plot_year(df,year):
@@ -120,25 +128,22 @@ def plot_year(df,year):
     #2. så skal de multipliseres med cpi
     #3. første argument er np her, ikke sp. 
     Q=np.linspace(0.1,100,100)
-    plt.plot(Q, np.exp(demand_curve(np,Q,y,pb))*cpi)
-    plt.plot(Q, np.exp(supply_curve_long_run(np,Q,N,X,pf,t))*cpi)
-    plt.plot(Q, np.exp(supply_curve_short_run(np,Q,N,X,pf,t,Q_fitted))*cpi)
-    plt.plot(Q, np.exp(demand_curve(np,Q+0.5,y,pb))*cpi)
-    plt.plot(Q, np.exp(demand_curve(np,Q,y+0.5,pb))*cpi)
-    plt.plot(Q, np.exp(demand_curve(np,Q,y,pb+0.5))*cpi)
+    plt.plot(Q, np.exp(demand_curve(np,Q,y,pb))*cpi, label = "Etterspørsel")
+    plt.plot(Q, np.exp(supply_curve_long_run(np,Q,N,X,pf,t))*cpi, label = "Mengde + 0.5")
+    plt.plot(Q, np.exp(supply_curve_short_run(np,Q,N,X,pf,t,Q_fitted))*cpi, label = "Inntekt + 0.5")
+    plt.plot(Q, np.exp(demand_curve(np,Q+0.5,y,pb))*cpi, label = "Storfe + 0.5")
+    plt.plot(Q, np.exp(demand_curve(np,Q,y+0.5,pb))*cpi, label = "Tilbud lang sikt")
+    plt.plot(Q, np.exp(demand_curve(np,Q,y,pb+0.5))*cpi, label = "Tilbud kort sikt")
     plt.ylim(0,400)
+    plt.legend()
+    plt.xlim(0,80)
+   
 
     
     plt.show()
     
-    plot_year(df,1995)
-    
- #scenarioer som kan være grunnen til slike endringer kan være endring av pris. 
+#scenarioer som kan være grunnen til slike endringer kan være endring av pris. 
 #endring av pris av for hos storfe kan sette opp prisen på kyret som igjen gjør det til et 
-#rivaliserende gode. Dette kan føre til mer konsum av kylling og andre kjøttprodukter.
-
-
-
-
+#rivaliserende gode. Dette kan føre til mer konsum av kylling og andre kjøttprodukter. 
 
 
