@@ -97,6 +97,7 @@ plot_year(df,1995)
 #demand noe som førte til et fall på prisen for kylling innen tidsperioden 1965-1995.
 #utslaget innen demand fra 1960-1995 er grunnet vekst innen realkapital på noe rundt 225%
 #i løpet av tidsperioden. og i løpet av perioden økte prisen med røffelig 25%.
+#fra 1950 til 1995 opplevde befolkingen i usa en økningen inntekten.prisen på produksjonkostadene gikk ned og kyllingroduskjonenen gikk opp.
 
 #Oppgave 7
 def plot_year(df,year):
