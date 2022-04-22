@@ -98,8 +98,6 @@ plot_year(df,1995)
 #utslaget innen demand fra 1960-1995 er grunnet vekst innen realkapital på noe rundt 225%
 #i løpet av tidsperioden. og i løpet av perioden økte prisen med røffelig 25%.
 
-
-
 #Oppgave 7
 def plot_year(df,year):
     
@@ -129,11 +127,12 @@ def plot_year(df,year):
     #3. første argument er np her, ikke sp. 
     Q=np.linspace(0.1,100,100)
     plt.plot(Q, np.exp(demand_curve(np,Q,y,pb))*cpi, label = "Etterspørsel")
-    plt.plot(Q, np.exp(supply_curve_long_run(np,Q,N,X,pf,t))*cpi, label = "Mengde + 0.5")
-    plt.plot(Q, np.exp(supply_curve_short_run(np,Q,N,X,pf,t,Q_fitted))*cpi, label = "Inntekt + 0.5")
+   
     plt.plot(Q, np.exp(demand_curve(np,Q+0.5,y,pb))*cpi, label = "Storfe + 0.5")
     plt.plot(Q, np.exp(demand_curve(np,Q,y+0.5,pb))*cpi, label = "Tilbud lang sikt")
     plt.plot(Q, np.exp(demand_curve(np,Q,y,pb+0.5))*cpi, label = "Tilbud kort sikt")
+    plt.plot(Q, np.exp(supply_curve_long_run(np,Q,N,X,pf,t))*cpi, label = "Mengde + 0.5")
+    plt.plot(Q, np.exp(supply_curve_short_run(np,Q,N,X,pf,t,Q_fitted))*cpi, label = "Inntekt + 0.5")
     plt.ylim(0,400)
     plt.legend()
     plt.xlim(0,80)
@@ -141,6 +140,12 @@ def plot_year(df,year):
 
     
     plt.show()
+
+
+plot_year(df,1995)
+
+
+
     
 #scenarioer som kan være grunnen til slike endringer kan være endring av pris. 
 #endring av pris av for hos storfe kan sette opp prisen på kyret som igjen gjør det til et 
